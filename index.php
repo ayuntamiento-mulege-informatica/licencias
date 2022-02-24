@@ -65,14 +65,10 @@ switch ($area) {
         include_once 'licencias_alcoholes.php';
     		break;
 
-<<<<<<< HEAD
       case '/nueva_licencia_alcoholes':
         include_once 'nueva_licencia_alcoholes.php';
     		break;
 
-=======
-      // TICKETS
->>>>>>> e892082374c0694842185914bc332d49652b9840
       case '/levantar_ticket':
         include_once 'levantar_ticket.php';
     		break;
