@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-9">
         <ul id="menu-izquierdo">
-          <?php if ($seccion != '/'): ?>
-            <li><a class="enlace-boton" href="/"><span class="fas fa-home"></span> Inicio</a></li>
-          <?php endif; ?>
-
           <?php
+          if ($seccion != '/'){
+            echo '<li> <a class="enlace-boton" href="/"> <span class="fas fa-home"></span> Inicio</a> </li>';
+          }
+
           switch ($area) {
             case 'Informática':
               if ($_SERVER['REQUEST_URI'] == '/modificar_usuario/'.$parametro_2){
@@ -16,13 +16,15 @@
               break;
 
             case 'Recaudación':
-              if ($_SERVER['REQUEST_URI'] == '/nueva_licencia_comercial'){
-                echo '<li> <a class="enlace-boton" href="/licencias_comerciales">Licencias comerciales</a> </li>';
+              switch ($_SERVER['REQUEST_URI']) {
+                case '/nueva_licencia_comercial':
+                case '/ver_licencias_comerciales':
+                case '/ver_licencias_comerciales/'.$parametro_2:
+                case '/cancelar_licencias_comerciales/'.$parametro_2:
+                case '/cancelar_licencias_comerciales/'.$parametro_2:
+                  echo '<li> <a class="enlace-boton" href="/licencias_comerciales">Licencias comerciales</a> </li>';
+                  break;
               }
-              break;
-
-            default:
-              // code...
               break;
           }
           ?>
