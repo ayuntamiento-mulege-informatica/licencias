@@ -52,6 +52,10 @@ switch ($area) {
         include_once 'licencias_alcoholes.php';
     		break;
 
+      case '/nueva_licencia_alcoholes':
+        include_once 'nueva_licencia_alcoholes.php';
+    		break;
+
       case '/levantar_ticket':
         include_once 'levantar_ticket.php';
     		break;

@@ -19,6 +19,10 @@
               if ($_SERVER['REQUEST_URI'] == '/nueva_licencia_comercial'){
                 echo '<li> <a class="enlace-boton" href="/licencias_comerciales">Licencias comerciales</a> </li>';
               }
+
+              if ($_SERVER['REQUEST_URI'] == '/nueva_licencia_alcoholes'){
+                echo '<li> <a class="enlace-boton" href="/licencias_alcoholes">Licencias de alcoholes</a> </li>';
+              }
               break;
 
             default:
