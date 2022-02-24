@@ -40,6 +40,8 @@ switch ($area) {
         include_once 'inicio_recaudacion.php';
     		break;
 
+
+      // LICENCIAS COMERCIALES.
       case '/licencias_comerciales':
         include_once 'licencias_comerciales.php';
     		break;
@@ -48,18 +50,34 @@ switch ($area) {
         include_once 'nueva_licencia_comercial.php';
     		break;
 
+      case '/ver_licencias_comerciales':
+      case '/ver_licencias_comerciales/'.$parametro_2:
+        include_once 'ver_licencias_comerciales.php';
+    		break;
+
+      case '/cancelar_licencias_comerciales':
+      case '/cancelar_licencias_comerciales/'.$parametro_2:
+        include_once 'cancelar_licencias_comerciales.php';
+        break;
+
+      // LICENCIAS DE ALCOHOLES
       case '/licencias_alcoholes':
         include_once 'licencias_alcoholes.php';
     		break;
 
+<<<<<<< HEAD
       case '/nueva_licencia_alcoholes':
         include_once 'nueva_licencia_alcoholes.php';
     		break;
 
+=======
+      // TICKETS
+>>>>>>> e892082374c0694842185914bc332d49652b9840
       case '/levantar_ticket':
         include_once 'levantar_ticket.php';
     		break;
 
+      // CIERRE DE SESIÓN
       case '/logout':
         include_once 'logout.php';
         break;
@@ -109,6 +127,7 @@ switch ($area) {
 		}
     break;
 
+  // INICIO DE SESIÓN
   default:
     include_once 'login.php';
     break;

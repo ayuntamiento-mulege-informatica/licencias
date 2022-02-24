@@ -19,16 +19,16 @@ include_once 'menu.php';
 
             <div class="col-4">
               <h3>Consultar</h3>
-              <a class="enlace-boton" href="#">Ver todas las licencias</a><br>
-              <a class="enlace-boton" href="#">Por folio</a><br>
-              <a class="enlace-boton" href="#">Por nombre</a><br>
-              <a class="enlace-boton" href="#">Por giro</a><br>
+              <a class="enlace-boton" href="/ver_licencias_comerciales">Ver todas las licencias</a><br>
+              <a class="enlace-boton" href="/ver_licencias_comerciales/por_folio">Por folio</a><br>
+              <a class="enlace-boton" href="/ver_licencias_comerciales/por_nombre">Por nombre</a><br>
+              <a class="enlace-boton" href="/ver_licencias_comerciales/por_giro">Por giro</a><br>
             </div>
 
             <div class="col-4">
               <h3>Cancelar</h3>
-              <a class="enlace-boton" href="#">Por folio</a><br>
-              <a class="enlace-boton" href="#">Por nombre</a><br>
+              <a class="enlace-boton" href="/cancelar_licencias_comerciales/por_folio">Por folio</a><br>
+              <a class="enlace-boton" href="/cancelar_licencias_comerciales/por_nombre">Por nombre</a><br>
             </div>
           </div>
         </div>
