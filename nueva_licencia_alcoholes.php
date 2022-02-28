@@ -1,4 +1,10 @@
 <?php
+require_once 'lib/class_licencias_alcoholes.php';
+
+$licencias_alcoholes = new licencias_alcoholes;
+
+$contar_folios = $licencias_alcoholes -> contarLicenciasAlcoholes($connect);
+
 include_once 'header.php';
 include_once 'menu.php';
 ?>
@@ -12,126 +18,74 @@ include_once 'menu.php';
         </div>
 
         <div class="contenido-contenedor">
-          <form class="container-fluid" action="/lib/procesar_nueva_licencia_comercial.php" method="post">
+          <form class="container-fluid" action="/lib/procesar_licencia_alcoholes.php" method="post">
             <div class="row">
-              <div class="col-4">
-                <!-- TIPO DE MOVIMIENTO -->
-                <label for="tipo_movimiento">Tipo de movimiento:</label><br>
-                <select id="tipo_movimiento" name="tipo_movimiento">
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="LICENCIAS">LICENCIAS</option>
-                  <option value="PERMISOS">PERMISOS</option>
-                </select>
+              <div class="col-2">
+                <label for="folio">Folio:</label><br>
+                <input id="folio" type="text" name="folio" value="<?php echo str_pad($contar_folios+1, 5, '0', STR_PAD_LEFT); ?>" readonly required>
+              </div>
 
-                <!-- ESTATUS GENERAL -->
-                <label for="estatus_general">Estatus general:</label><br>
-                <select id="estatus_general" name="estatus_general">
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="ACTIVOS">ACTIVOS</option>
-                  <option value="CANCELADOS">CANCELADOS</option>
-                  <option value="REACTIVADOS">REACTIVADOS</option>
-                </select>
-
-                <!-- ESTATUS VIGENCIA -->
-                <label for="estatus_vigencia">Estatus vigencia:</label><br>
-                <select id="estatus_vigencia" name="estus_vigencia">
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="VIGENTES">VIGENTES</option>
-                  <option value="VENCIDOS">VENCIDOS</option>
-                </select>
-
-                <!-- ESTATUS SOLICITANTES -->
-                <label for="estatus_solicitantes">Estatus solicitantes:</label><br>
-                <select id="estatus_solicitantes" name="estatus_solicitantes">
-                  <option value="--NO APLICA--">--NO APLICA--</option>
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="LICENCIA NUEVA">LICENCIA NUEVA</option>
-                  <option value="CAMBIO DE DOMICILIO">CAMBIO DE DOMICILIO</option>
-                  <option value="CAMB/AMPL DE GIRO">CAMB/AMPL DE GIRO</option>
-                </select>
-
-                <!-- PERIODO -->
-                <label for="periodo">Periodo:</label><br>
-                <select id="periodo" name="periodo">
+              <div class="col-2">
+                <label for="">Tipo:</label><br>
+                <select name="tipo" required>
                   <option value=""></option>
-                  <option value="ESTA SEMANA">ESTA SEMANA</option>
-                  <option value="ESTE MES">ESTE MES</option>
-                  <option value="ESTE AÑO">ESTE AÑO</option>
-                  <option value="DEFINIR PERIODO">DEFINIR PERIODO</option>
+                  <option value="A">A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="E">E</option>
+                </select>
+              </div>
+
+              <div class="col-2">
+                <label for="anyo">Año:</label><br>
+                <select id="anyo" name="anyo" required>
+                  <option value=""></option>
+                  <?php $anyo = date('Y'); ?>
+                  <option value="<?php echo $anyo ?>"><?php echo $anyo; ?></option>
+                  <?php for ($i=$anyo; $i < ($anyo+10); $i++) {
+                    echo '<option>'.$i.'</option>';
+                  } ?>
+                </select>
+              </div>
+
+              <div class="col-2">
+                <label for="caracteristicas">Características:</label><br>
+                <select id="caracteristicas" name="caracteristicas" required>
+                  <option value=""></option>
+                  <option value="NUEVA">NUEVA</option>
+                  <option value="CONTINUAR">CONTINUAR</option>
                 </select>
               </div>
 
               <div class="col-4">
-                <!-- PROPIETARIO -->
+                <label for="rfc">RFC:</label><br>
+                <input id="rfc" type="text" name="rfc" maxlength="13" pattern="[A-Z0-9]{10,13}" required>
+              </div>
+
+              <div class="col-6">
                 <label for="propietario">Propietario:</label><br>
-                <input id="propietario" type="text" name="propietario">
+                <input id="propietario" type="text" name="propietario" required>
+              </div>
 
-                <!-- DOMICILIO -->
-                <label for="domicilio">Domicilio:</label><br>
-                <input id="domicilio" type="text" name="domicilio">
-
-                <!-- GIRO COMERCIAL -->
-                <label for="giro_comercial">Giro(s) comercial(es):</label><br>
-                <input id="giro_comercial" type="text" name="giro_comercial">
-
-                <!-- TIPO DE GIRO -->
-                <label for="tipo_de_giro">Tipo de giro:</label><br>
-                <select id="tipo_de_giro" name="tipo_de_giro">
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="BLANCO">BLANCO</option>
-                  <option value="BLANCO RESTR.">BLANCO RESTR.</option>
-                  <option value="RESTRINGIDO">RESTRINGIDO</option>
-                  <option value="PERMISO PROV.">PERMISO PROV.</option>
-                </select>
-
-                <!-- ESTATUS REGISTRO -->
-                <label for="estatus_registros">Estatus registro:</label><br>
-                <select id="estatus_registros" name="estatus_registros">
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="NUEVAS">NUEVAS</option>
-                  <option value="REFRENDOS">REFRENDOS</option>
-                </select>
-
-                <!-- ADEUDA DESDE -->
-                <label for="adeuda">Adeuda desde:</label><br>
-                <input id="adeuda" type="checkbox" name="adeuda" value="Si">
-                <input type="date" name="adeuda_desde" value="<?php echo date('Y-m-d'); ?>">
+              <div class="col-6">
+                <label for="nombre_comercial">Nombre comercial:</label><br>
+                <input id="nombre_comercial" type="text" name="nombre_comercial" required>
               </div>
 
               <div class="col-4">
-                <!-- ANUNCIOS -->
-                <label for="anuncios">Anuncios:</label><br>
-                <select id="anuncios" name="anuncios">
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="SI">SI</option>
-                  <option value="NO">NO</option>
-                </select>
+                <label for="actividad">Actividad:</label><br>
+                <input id="actividad" type="text" name="actividad" required>
+              </div>
 
-                <!-- EMPLEADOS -->
-                <label for="empleados">Empleados:</label><br>
-                <select id="empleados" name="empleados">
-                  <option value="--TODOS--">--TODOS--</option>
-                  <option value="SI">SI</option>
-                  <option value="NO">NO</option>
-                </select>
+              <div class="col-4">
+                <label for="domicilio">Domicilio:</label><br>
+                <input id="domicilio" type="text" name="domicilio" required>
+              </div>
 
-                <hr>
-
-                <!-- SUPERFICIE -->
-                <label for="">Superficie (m2):</label><br>
-                <label for="superficie_desde">Desde:</label><br>
-                <input id="superficie_desde" type="text" name="superficie_desde">
-                <label for="superficie_hasta">Hasta:</label><br>
-                <input id="superficie_hasta" type="text" name="superficie_hasta">
-
-                <hr>
-
-                <!-- PAGOS RECIBIDOS -->
-                <label for="">Pagos recibidos:</label><br>
-                <label for="pago_recibido_desde">Desde:</label><br>
-                <input id="pago_recibido_desde" type="date" name="pago_recibido_desde" value="<?php echo date('Y-m-d'); ?>">
-                <label for="pago_recibido_hasta">Hasta:</label><br>
-                <input id="pago_recibido_hasta" type="date" name="pago_recibido_hasta" value="<?php echo date('Y-m-d'); ?>">
+              <div class="col-4">
+                <label for="fecha_expedicion">Fecha de expedición:</label><br>
+                <input id="fecha_expedicion" type="date" name="fecha_expedicion" value="<?php echo date('Y-m-d'); ?>" required>
               </div>
             </div>
 
