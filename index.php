@@ -55,6 +55,10 @@ switch ($area) {
         include_once 'ver_licencias_comerciales.php';
     		break;
 
+      case '/imprimir_licencia_alcoholes/'.$parametro_2:
+        include_once 'imprimir_licencia_alcoholes.php';
+        break;
+
       case '/cancelar_licencias_comerciales':
       case '/cancelar_licencias_comerciales/'.$parametro_2:
         include_once 'cancelar_licencias_comerciales.php';

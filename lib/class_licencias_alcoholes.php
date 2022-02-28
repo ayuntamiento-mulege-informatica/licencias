@@ -20,6 +20,31 @@ class licencias_alcoholes {
 
      return 'La licencia ha sido creada exitosamente.';
   }
+
+  // Función para imprimir información de licencia de alcoholes.
+  function infoLicenciaAlcoholes($connect, $folio) {
+    $sql = "SELECT * FROM licencias_alcoholes WHERE folio = $folio";
+    $query = mysqli_query($connect, $sql);
+    $row = mysqli_fetch_array($query);
+
+    if (isset($row)) {
+      return array(
+        'folio' => $row['folio'],
+        'tipo' => $row['tipo'],
+        'anyo' => $row['anyo'],
+        'caracteristicas' => $row['caracteristicas'],
+        'rfc' => $row['rfc'],
+        'propietario' => $row['propietario'],
+        'nombre_comercial' => $row['nombre_comercial'],
+        'actividad' => $row['actividad'],
+        'domicilio' => $row['domicilio'],
+        'fecha_expedicion' => $row['fecha_expedicion']
+      );
+    }
+    else {
+      return null;
+    }
+  }
 }
 
 ?>
