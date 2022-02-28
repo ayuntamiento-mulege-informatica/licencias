@@ -22,7 +22,7 @@ include_once 'menu.php';
             <div class="row">
               <div class="col-2">
                 <label for="folio">Folio:</label><br>
-                <input id="folio" type="text" name="folio" value="<?php echo str_pad($contar_folios+1, 5, '0', STR_PAD_LEFT); ?>" readonly required>
+                <input id="folio" type="text" name="folio" value="<?php echo $contar_folios+1; ?>" readonly required>
               </div>
 
               <div class="col-2">
