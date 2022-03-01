@@ -47,6 +47,33 @@ class licencias_alcoholes {
     }
   }
 
+  function ListaLicenciasAlcoholesTodas($connect) {
+    $sql = "SELECT * FROM licencias_alcoholes";
+    $query = mysqli_query($connect, $sql);
+    while ($row = mysqli_fetch_array($query)) {
+      $licencias[] = array(
+        'folio' => $row['folio'],
+        'admin' => $row['admin'],
+        'tipo' => $row['tipo'],
+        'anyo' => $row['anyo'],
+        'caracteristicas' => $row['caracteristicas'],
+        'rfc' => $row['rfc'],
+        'propietario' => $row['propietario'],
+        'nombre_comercial' => $row['nombre_comercial'],
+        'actividad' => $row['actividad'],
+        'domicilio' => $row['domicilio'],
+        'fecha_expedicion' => $row['fecha_expedicion']
+      );
+    }
+
+    if (isset($licencias)) {
+      return $licencias;
+    }
+    else {
+      return null;
+    }
+  }
+
   // Fecha con letra.
   function obtenerFechaEnLetra($fecha){
     // $dia = $this -> conocerDiaSemanaFecha($fecha);

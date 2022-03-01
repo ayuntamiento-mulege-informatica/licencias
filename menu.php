@@ -24,6 +24,9 @@
                 case '/cancelar_licencias_comerciales/'.$parametro_2:
                   echo '<li> <a class="enlace-boton" href="/licencias_comerciales">Licencias comerciales</a> </li>';
                   break;
+
+                case '/lista_licencias_alcoholes':
+                  echo '<li> <a class="enlace-boton" href="/licencias_alcoholes">Licencias de alcoholes</a> </li>';
               }
 
               if ($_SERVER['REQUEST_URI'] == '/nueva_licencia_alcoholes'){

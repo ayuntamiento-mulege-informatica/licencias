@@ -19,7 +19,7 @@ include_once 'menu.php';
 
             <div class="col-4">
               <h3>Consultar</h3>
-              <a class="enlace-boton" style="width: 100%;" href="#">Ver todas las licencias</a><br>
+              <a class="enlace-boton" style="width: 100%;" href="/lista_licencias_alcoholes">Ver todas las licencias</a><br>
               <a class="enlace-boton" style="width: 100%;" href="#">Por folio</a><br>
               <a class="enlace-boton" style="width: 100%;" href="#">Por nombre</a><br>
               <a class="enlace-boton" style="width: 100%;" href="#">Por giro</a><br>
