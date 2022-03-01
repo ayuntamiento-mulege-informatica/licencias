@@ -18,9 +18,9 @@ include_once 'menu.php';
         </div>
 
         <div class="contenido-contenedor" style="overflow: auto;">
-          <table>
+          <table style="font-size: .8rem;">
             <tr>
-              <th colspan="4">ACCIONES</th>
+              <th colspan="3">ACCIONES</th>
               <th>FOLIO</th>
               <th>ADMIN.</th>
               <th>TIPO</th>
@@ -38,7 +38,6 @@ include_once 'menu.php';
             <?php if (isset($lista_licencias_alcoholes)):
               foreach ($lista_licencias_alcoholes as $licencia): ?>
               <tr>
-                <td><a href="" title="Ver licencia"><span class="fas fa-2x fa-eye"></span></a></td>
                 <td><a href="/editar_licencia_alcoholes/<?php echo $licencia['folio']; ?>" title="Editar licencia"><span class="fas fa-2x fa-pencil-alt"></span></a></td>
                 <td><a href="" title="Eliminar licencia"><span class="fas fa-2x fa-eraser"></span></a></td>
                 <td><a href="/imprimir_licencia_alcoholes/<?php echo $licencia['folio']; ?>" title="Imprimir licencia" target="_blank"><span class="fas fa-2x fa-print"></span></a></td>
