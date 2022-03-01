@@ -32,15 +32,16 @@ include_once 'menu.php';
               <th>ACTIVIDAD</th>
               <th>DOMICILIO</th>
               <th>FECHA DE EMISIÓN</th>
+              <th>ESTATUS</th>
             </tr>
 
             <?php if (isset($lista_licencias_alcoholes)):
               foreach ($lista_licencias_alcoholes as $licencia): ?>
               <tr>
                 <td><a href="" title="Ver licencia"><span class="fas fa-2x fa-eye"></span></a></td>
-                <td><a href="" title="Editar licencia"><span class="fas fa-2x fa-pencil-alt"></span></a></td>
+                <td><a href="/editar_licencia_alcoholes/<?php echo $licencia['folio']; ?>" title="Editar licencia"><span class="fas fa-2x fa-pencil-alt"></span></a></td>
                 <td><a href="" title="Eliminar licencia"><span class="fas fa-2x fa-eraser"></span></a></td>
-                <td><a href="" title="Imprimir licencia"><span class="fas fa-2x fa-print"></span></a></td>
+                <td><a href="/imprimir_licencia_alcoholes/<?php echo $licencia['folio']; ?>" title="Imprimir licencia" target="_blank"><span class="fas fa-2x fa-print"></span></a></td>
                 <td><?php echo $licencia['folio']; ?></td>
                 <td><?php echo $licencia['admin']; ?></td>
                 <td><?php echo $licencia['tipo']; ?></td>
