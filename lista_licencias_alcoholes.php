@@ -14,24 +14,7 @@ include_once 'menu.php';
     <div class="col-12">
       <div class="contenedor">
         <div class="titulo-contenedor">
-          <h2>Ver licencias de alcoholes</h2>
-
-          <?php
-          if (!isset($parametro_2)) {
-            echo '<h3>Todas</h3>';
-          }
-          else {
-            if ($parametro_2 == 'por_folio') {
-              echo '<h3>Por folio</h3>';
-            }
-            elseif ($parametro_2 == 'por_nombre') {
-              echo '<h3>Por nombre</h3>';
-            }
-            elseif ($parametro_2 == 'por_giro') {
-              echo '<h3>Por giro</h3>';
-            }
-          }
-          ?>
+          <h2>Licencias de alcoholes</h2>
         </div>
 
         <div class="contenido-contenedor" style="overflow: auto;">
