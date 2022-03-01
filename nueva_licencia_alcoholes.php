@@ -77,17 +77,17 @@ include_once 'menu.php';
                 <input id="nombre_comercial" type="text" name="nombre_comercial" required>
               </div>
 
-              <div class="col-4">
+              <div class="col-12">
                 <label for="actividad">Actividad:</label><br>
                 <input id="actividad" type="text" name="actividad" required>
               </div>
 
-              <div class="col-4">
+              <div class="col-9">
                 <label for="domicilio">Domicilio:</label><br>
                 <input id="domicilio" type="text" name="domicilio" required>
               </div>
 
-              <div class="col-4">
+              <div class="col-3">
                 <label for="fecha_expedicion">Fecha de expedición:</label><br>
                 <input id="fecha_expedicion" type="date" name="fecha_expedicion" value="<?php echo date('Y-m-d'); ?>" required>
               </div>
