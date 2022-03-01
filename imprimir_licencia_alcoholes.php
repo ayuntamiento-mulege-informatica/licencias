@@ -17,7 +17,7 @@ else {
     $info = $licencias_alcoholes -> infoLicenciaAlcoholes($connect, $parametro_2);
     $funcionario = $administraciones -> imprimirFuncionarios($connect, $info['admin']);
 
-    $fecha_letra = $licencias_alcoholes -> obtenerFechaEnLetra($info['fecha_expedicion']);
+    $fecha_letra = $licencias_alcoholes -> obtenerFechaEnLetra($info['fecha_emision']);
 
     ?>
     <!DOCTYPE html>
