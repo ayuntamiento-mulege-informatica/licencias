@@ -21,6 +21,15 @@ class licencias_alcoholes {
     return 'La licencia ha sido creada exitosamente.';
   }
 
+  // Función para actualizar licencia de alcoholes.
+  function actualizarLicenciaAlcoholes($connect, $folio, $admin, $tipo, $destino, $anyo, $caracteristicas, $rfc, $propietario, $nombre_comercial, $actividad, $domicilio, $fecha_emision) {
+    $sql = "UPDATE licencias_alcoholes SET tipo = '$tipo', destino = '$destino', anyo = $anyo, caracteristicas = '$caracteristicas', rfc = '$rfc', propietario = '$propietario', nombre_comercial = '$nombre_comercial', actividad = '$actividad', domicilio = '$domicilio', fecha_emision = '$fecha_emision' WHERE folio = $folio";
+
+    mysqli_query($connect, $sql) or die ($connect -> error.' No ha sido posible actualizar la licencia.');
+
+    return 'La licencia ha sido actualizada.';
+  }
+
   // Función para imprimir información de licencia de alcoholes.
   function infoLicenciaAlcoholes($connect, $folio) {
     $sql = "SELECT * FROM licencias_alcoholes WHERE folio = $folio";

@@ -65,6 +65,13 @@ else {
 
       <!-- CUBIERTA DE PROTECCIÓN -->
       <div class="cubierta"></div>
+
+      <?php if (isset($_SESSION['msg'])) {
+        echo '<script>
+        alert("'.$_SESSION['msg'].'");
+        </script>';
+        unset($_SESSION['msg']);
+      } ?>
     </body>
     </html>
     <?php
