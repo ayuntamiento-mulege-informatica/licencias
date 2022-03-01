@@ -92,7 +92,7 @@ CREATE TABLE `licencias_alcoholes` (
   `nombre_comercial` varchar(128) NOT NULL,
   `actividad` varchar(128) NOT NULL,
   `domicilio` varchar(128) NOT NULL,
-  `fecha_expedicion` date NOT NULL DEFAULT current_timestamp()
+  `fecha_emision` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
