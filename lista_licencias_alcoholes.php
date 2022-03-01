@@ -68,7 +68,7 @@ include_once 'menu.php';
                 <td><?php echo $licencia['nombre_comercial']; ?></td>
                 <td><?php echo $licencia['actividad']; ?></td>
                 <td><?php echo $licencia['domicilio']; ?></td>
-                <td><?php echo $licencia['fecha_expedicion']; ?></td>
+                <td><?php echo $licencia['fecha_mision']; ?></td>
               </tr>
               <?php endforeach;
               else: ?>
