@@ -1,7 +1,7 @@
 <?php
 require_once 'connect.php';
 require_once 'lib/class_licencias_alcoholes.php';
-// require_once 'lib/class_administraciones.php';
+require_once 'lib/class_administraciones.php';
 
 // session_start();
 
@@ -12,30 +12,55 @@ else {
   if ($_SESSION['area'] == 'Recaudación') {
 
     $licencias_alcoholes = new licencias_alcoholes;
-    // $administraciones = new administraciones;
+    $administraciones = new administraciones;
 
     $info = $licencias_alcoholes -> infoLicenciaAlcoholes($connect, $parametro_2);
-    // $funcionario = $administraciones -> imprimirFuncionarios($connect, $titulo['admin']);
+    $funcionario = $administraciones -> imprimirFuncionarios($connect, $info['admin']);
+
+    $fecha_letra = $licencias_alcoholes -> obtenerFechaEnLetra($info['fecha_expedicion']);
 
     ?>
     <!DOCTYPE html>
     <html lang="es-MX">
     <head>
       <meta charset="utf-8">
-      <title>Título de propiedad - Página 1</title>
+      <title>PREVISUALIZACIÓN DE LICENCIA DE ALCOHOLES</title>
       <link rel="stylesheet" media="screen" href="/css/screen.css">
       <link rel="stylesheet" media="print" href="/css/print.css">
     </head>
     <body>
       <div class="pagina">
-        <h1>ESTA LICENCIA ES VÁLIDA SOLO POR EL <?php echo $info['anyo']; ?></h1>
-        <p>TIPO Y FOLIO <span style="color: red;"> <?php echo $info['tipo'].'-'.str_pad($info['folio'], 5, "0", STR_PAD_LEFT); ?></span></p>
+        <div class="pagina-contenido">
+          <p style="font-size: 2rem; font-weight: bold;">ESTA LICENCIA ES VÁLIDA SOLO POR EL <?php echo $info['anyo']; ?></p>
+          <p style="font-size: 1.5rem; font-weight: bold;">TIPO Y FOLIO <?php echo $info['tipo'].'-'.str_pad($info['folio'], 5, "0", STR_PAD_LEFT); ?></p>
 
-        <p>LICENCIA PARA OPERAR ESTABLECIMIENTO DE BEBIDAS ALCOHÓLICAS DESTINADAS A:</p>
+          <p style="font-size: .8rem;">LICENCIA PARA OPERAR ESTABLECIMIENTO DE BEBIDAS ALCOHÓLICAS DESTINADAS A:</p>
 
-        <h2 align="center">VENTA</h2>
+          <p style="font-size: 1.5rem; font-weight: bold;">VENTA</p>
 
-        <p>CON FUNDAMENTO EN LOS ARTÍCULOS 9, 13 Y 14 DE LA LEY SOBRE EL CONTROL DE LICENCIAS DESTINADAS AL ALMACENAJE, DISTRIBUCIÓN, VENTA Y CONSUMO DE BEBIDAS ALCOHÓLICAS DEL ESTADO DE BAJA CALIFORNIA SUR, SE OTROGA LA PRESENTE LICENCIA CON LAS SIGUIENTES CARACTERÍSTICAS <?php echo $info['caracteristicas']; ?> RFC: <?php echo $info['rfc']; ?></p>
+          <p style="font-size: .8rem;">CON FUNDAMENTO EN LOS ARTÍCULOS 9, 13 Y 14 DE LA LEY SOBRE EL CONTROL DE LICENCIAS DESTINADAS AL ALMACENAJE, DISTRIBUCIÓN, VENTA Y CONSUMO DE BEBIDAS ALCOHÓLICAS DEL ESTADO DE BAJA CALIFORNIA SUR, SE OTORGA LA PRESENTE LICENCIA CON LAS SIGUIENTES CARACTERÍSTICAS <span style="font-weight: bold;"><?php echo $info['caracteristicas']; ?></span>, RFC: <span style="font-weight: bold;"><?php echo $info['rfc']; ?></span>.</p>
+
+          <p><span style="font-size: 1.5rem; font-weight: bold;"><?php echo $info['propietario']; ?></span><br><span  style="font-size: .8rem;">PROPIETARIO</span></p>
+
+          <p><span style="font-size: 1.5rem; text-decoration: underline; font-weight: bold;"><?php echo $info['nombre_comercial']; ?></span><br><span style="font-size: .8rem;">NOMBRE COMERCIAL</span></p>
+
+          <p><span style="font-size: .8rem;"><?php echo $info['actividad']; ?></span><br><span style="font-size: .8rem;">ACTIVIDAD</span></p>
+
+          <p><span style="font-size: .8rem;"><?php echo $info['domicilio']; ?></span><br><span style="font-size: .8rem;">DOMICILIO</span></p>
+
+          <p><span style="font-size: .8rem;">SANTA ROSALÍA, BAJA CALIFORNIA SUR, A <?php echo $fecha_letra; ?><br><span style="font-size: .8rem;">LUGAR Y FECHA DE EXPEDICIÓN</span></p>
+
+          <table>
+            <tr>
+              <td style="padding: 0 .3cm 0 0;"><span style="font-size: 1rem; font-weight: bold;"><?php echo $funcionario['presidente_municipal']; ?></span><br><span style="font-size: .8rem;">PRESIDENTE MUNICIPAL DEL H. XVII AYUNTAMIENTO DE MULEGÉ</span></td>
+              <td style="padding: 0 0 0 .3cm;"><span style="font-size: 1rem; font-weight: bold;"><?php echo $funcionario['tesorero_municipal']; ?></span><br><span style="font-size: .8rem;">TESORERA MUNICIPAL DEL H. XVII AYUNTAMIENTO DE MULEGÉ</span></td>
+            </tr>
+          </table>
+
+          <p style="font-size: .8rem;">EL ORIGINAL DE ESTE DOCUMENTO DEBERÁ COLOCARSE EN UN LUGAR VISIBLE Y MOSTRARLO A LA AUTORIDAD COMPETENTE CUANDO SEA REQUERIDO. EL HACER CASO OMISO A ESTA DISPOSICIÓN LO HACE ACREEDOR A UNA SANSIÓN.</p>
+
+          <p style="font-size: 1.5rem; font-weight: bold;">ESTA LICENCIA NO ES TRANSFERIBLE NI NEGOCIABLE.</p>
+        </div>
       </div>
 
       <!-- CUBIERTA DE PROTECCIÓN -->
