@@ -22,7 +22,7 @@ include_once 'menu.php';
             <tr>
               <th colspan="4">ACCIONES</th>
               <th>FOLIO</th>
-              <th>ADMINISTRACIÓN</th>
+              <th>ADMIN.</th>
               <th>TIPO</th>
               <th>AÑO</th>
               <th>CARACTERÍSTICAS</th>
