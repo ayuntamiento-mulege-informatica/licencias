@@ -26,6 +26,7 @@
                   break;
 
                 case '/lista_licencias_alcoholes':
+                case '/editar_licencia_alcoholes/'.$parametro_2:
                   echo '<li> <a class="enlace-boton" href="/licencias_alcoholes">Licencias de alcoholes</a> </li>';
               }
 
