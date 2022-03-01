@@ -36,7 +36,7 @@ else {
 
           <p style="font-size: .8rem;">LICENCIA PARA OPERAR ESTABLECIMIENTO DE BEBIDAS ALCOHÓLICAS DESTINADAS A:</p>
 
-          <p style="font-size: 1.5rem; font-weight: bold;">VENTA</p>
+          <p style="font-size: 1.5rem; font-weight: bold;"><?php echo $info['destino']; ?></p>
 
           <p style="font-size: .8rem;">CON FUNDAMENTO EN LOS ARTÍCULOS 9, 13 Y 14 DE LA LEY SOBRE EL CONTROL DE LICENCIAS DESTINADAS AL ALMACENAJE, DISTRIBUCIÓN, VENTA Y CONSUMO DE BEBIDAS ALCOHÓLICAS DEL ESTADO DE BAJA CALIFORNIA SUR, SE OTORGA LA PRESENTE LICENCIA CON LAS SIGUIENTES CARACTERÍSTICAS <span style="font-weight: bold;"><?php echo $info['caracteristicas']; ?></span>, RFC: <span style="font-weight: bold;"><?php echo $info['rfc']; ?></span>.</p>
 
