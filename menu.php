@@ -26,8 +26,14 @@
                   break;
 
                 case '/lista_licencias_alcoholes':
+                // case '/editar_licencia_alcoholes/'.$parametro_2:
+                  echo '<li> <a class="enlace-boton" href="/licencias_alcoholes">Licencias de alcoholes</a> </li>';
+                  break;
+
                 case '/editar_licencia_alcoholes/'.$parametro_2:
                   echo '<li> <a class="enlace-boton" href="/licencias_alcoholes">Licencias de alcoholes</a> </li>';
+                  echo '<li> <a class="enlace-boton" href="/lista_licencias_alcoholes">Lista de licencias</a> </li>';
+                  break;
               }
 
               if ($_SERVER['REQUEST_URI'] == '/nueva_licencia_alcoholes'){
