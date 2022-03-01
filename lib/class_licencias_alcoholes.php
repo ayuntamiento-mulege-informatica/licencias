@@ -13,8 +13,8 @@ class licencias_alcoholes {
   }
 
   // Función para registrar licencias de alcoholes.
-  function registrarLicenciaAlcoholes($connect, $folio, $admin, $tipo, $anyo, $caracteristicas, $rfc, $propietario, $nombre_comercial, $actividad, $domicilio, $fecha_emision, $estatus) {
-    $sql = "INSERT INTO licencias_alcoholes (folio, admin, tipo, anyo, caracteristicas, rfc, propietario, nombre_comercial, actividad, domicilio, fecha_emision) VALUES ($folio, '$admin', '$tipo', $anyo, '$caracteristicas', '$rfc', '$propietario', '$nombre_comercial', '$actividad', '$domicilio', '$fecha_emision', '$estatus')";
+  function registrarLicenciaAlcoholes($connect, $folio, $admin, $tipo, $destino, $anyo, $caracteristicas, $rfc, $propietario, $nombre_comercial, $actividad, $domicilio, $fecha_emision) {
+    $sql = "INSERT INTO licencias_alcoholes (folio, admin, tipo, destino, anyo, caracteristicas, rfc, propietario, nombre_comercial, actividad, domicilio, fecha_emision, estatus) VALUES ($folio, '$admin', '$tipo', '$destino', $anyo, '$caracteristicas', '$rfc', '$propietario', '$nombre_comercial', '$actividad', '$domicilio', '$fecha_emision', 'ACTIVO')";
 
     mysqli_query($connect, $sql) or die ($connect -> error.' No se ha podido crear la licencia.');
 
@@ -32,6 +32,7 @@ class licencias_alcoholes {
         'folio' => $row['folio'],
         'admin' => $row['admin'],
         'tipo' => $row['tipo'],
+        'destino' => $row['destino'],
         'anyo' => $row['anyo'],
         'caracteristicas' => $row['caracteristicas'],
         'rfc' => $row['rfc'],
@@ -56,6 +57,7 @@ class licencias_alcoholes {
         'folio' => $row['folio'],
         'admin' => $row['admin'],
         'tipo' => $row['tipo'],
+        'destino' => $row['destino'],
         'anyo' => $row['anyo'],
         'caracteristicas' => $row['caracteristicas'],
         'rfc' => $row['rfc'],

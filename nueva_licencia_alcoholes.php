@@ -29,7 +29,7 @@ include_once 'menu.php';
                 <input type="hidden" name="administracion" value="<?php echo $administracion_actual; ?>">
               </div>
 
-              <div class="col-2">
+              <div class="col-1">
                 <label for="">Tipo:</label><br>
                 <select name="tipo" required>
                   <option value=""></option>
@@ -38,6 +38,16 @@ include_once 'menu.php';
                   <option value="C">C</option>
                   <option value="D">D</option>
                   <option value="E">E</option>
+                </select>
+              </div>
+
+              <div class="col-2">
+                <label for="destino">Destino:</label><br>
+                <select id="destino" name="destino">
+                  <option value=""></option>
+                  <option value="VENTA">VENTA</option>
+                  <option value="CONSUMO">CONSUMO</option>
+                  <option value="DISTRIBUCIÓN">DISTRIBUCIÓN</option>
                 </select>
               </div>
 
@@ -62,7 +72,7 @@ include_once 'menu.php';
                 </select>
               </div>
 
-              <div class="col-4">
+              <div class="col-3">
                 <label for="rfc">RFC:</label><br>
                 <input id="rfc" type="text" name="rfc" maxlength="13" pattern="[A-Z0-9]{10,13}" required>
               </div>
