@@ -1,9 +1,12 @@
 <?php
 require_once 'lib/class_licencias_alcoholes.php';
+require_once 'lib/class_administraciones.php';
 
 $licencias_alcoholes = new licencias_alcoholes;
+$administraciones = new administraciones;
 
 $contar_folios = $licencias_alcoholes -> contarLicenciasAlcoholes($connect);
+$administracion_actual = $administraciones -> administracionActual($connect);
 
 include_once 'header.php';
 include_once 'menu.php';
@@ -23,6 +26,7 @@ include_once 'menu.php';
               <div class="col-2">
                 <label for="folio">Folio:</label><br>
                 <input id="folio" type="text" name="folio" value="<?php echo $contar_folios+1; ?>" readonly required>
+                <input type="hidden" name="administracion" value="<?php echo $administracion_actual; ?>">
               </div>
 
               <div class="col-2">

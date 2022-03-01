@@ -1,7 +1,7 @@
 <?php
 /**
- *
- */
+*
+*/
 class licencias_alcoholes {
   // Función para contar licencias de alcoholes.
   function contarLicenciasAlcoholes($connect) {
@@ -13,12 +13,12 @@ class licencias_alcoholes {
   }
 
   // Función para registrar licencias de alcoholes.
-  function registrarLicenciaAlcoholes($connect, $folio, $tipo, $anyo, $caracteristicas, $rfc, $propietario, $nombre_comercial, $actividad, $domicilio, $fecha_expedicion) {
-    $sql = "INSERT INTO licencias_alcoholes (folio, tipo, anyo, caracteristicas, rfc, propietario, nombre_comercial, actividad, domicilio, fecha_expedicion) VALUES ($folio, '$tipo', $anyo, '$caracteristicas', '$rfc', '$propietario', '$nombre_comercial', '$actividad', '$domicilio', '$fecha_expedicion')";
+  function registrarLicenciaAlcoholes($connect, $folio, $admin, $tipo, $anyo, $caracteristicas, $rfc, $propietario, $nombre_comercial, $actividad, $domicilio, $fecha_expedicion) {
+    $sql = "INSERT INTO licencias_alcoholes (folio, admin, tipo, anyo, caracteristicas, rfc, propietario, nombre_comercial, actividad, domicilio, fecha_expedicion) VALUES ($folio, '$admin', '$tipo', $anyo, '$caracteristicas', '$rfc', '$propietario', '$nombre_comercial', '$actividad', '$domicilio', '$fecha_expedicion')";
 
-     mysqli_query($connect, $sql) or die ($connect -> error.' No se ha podido crear la licencia.');
+    mysqli_query($connect, $sql) or die ($connect -> error.' No se ha podido crear la licencia.');
 
-     return 'La licencia ha sido creada exitosamente.';
+    return 'La licencia ha sido creada exitosamente.';
   }
 
   // Función para imprimir información de licencia de alcoholes.
@@ -30,6 +30,7 @@ class licencias_alcoholes {
     if (isset($row)) {
       return array(
         'folio' => $row['folio'],
+        'admin' => $row['admin'],
         'tipo' => $row['tipo'],
         'anyo' => $row['anyo'],
         'caracteristicas' => $row['caracteristicas'],
@@ -44,6 +45,23 @@ class licencias_alcoholes {
     else {
       return null;
     }
+  }
+
+  // Fecha con letra.
+  function obtenerFechaEnLetra($fecha){
+    // $dia = $this -> conocerDiaSemanaFecha($fecha);
+    $num = date("j", strtotime($fecha));
+    $anno = date("Y", strtotime($fecha));
+    $mes = array('ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO', 'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE');
+    $mes = $mes[(date('m', strtotime($fecha))*1)-1];
+    // return $dia.', '.$num.' de '.$mes.' del '.$anno;
+    return $num.' DE '.$mes.' DE '.$anno;
+  }
+
+  function conocerDiaSemanaFecha($fecha) {
+    $dias = array('DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO');
+    $dia = $dias[date('w', strtotime($fecha))];
+    return $dia;
   }
 }
 
