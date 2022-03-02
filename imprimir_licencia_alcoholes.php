@@ -38,7 +38,7 @@ else {
 
           <p style="font-size: 1.5rem; font-weight: bold; margin: .2cm 0;"><?php echo $info['destino']; ?></p>
 
-          <p style="font-size: .8rem; margin: .2cm 0;">CON FUNDAMENTO EN LA LEY QUE REGULA EL ALMACENAJE, DISTRIBUCIÓN, VENTA Y CONSUMO DE BEBIDAS ALCOHÓLICAS EN EL ESTADO DE BAJA CALIFORNIA SUR, SE OTORGA LA PRESENTE LICENCIA CON LAS SIGUIENTES CARACTERÍSTICAS<br><span style="font-weight: bold;"><?php echo $info['caracteristicas']; ?></span>, RFC: <span style="font-weight: bold;"><?php echo $info['rfc']; ?></span>.</p>
+          <p style="font-size: .8rem; margin: .2cm 0;">CON FUNDAMENTO EN LA LEY QUE REGULA EL ALMACENAJE, DISTRIBUCIÓN, VENTA Y CONSUMO DE BEBIDAS ALCOHÓLICAS EN EL ESTADO DE BAJA CALIFORNIA SUR, SE OTORGA LA PRESENTE LICENCIA CON LAS SIGUIENTES CARACTERÍSTICAS <span style="font-weight: bold;"><?php echo $info['caracteristicas']; ?></span>, RFC: <span style="font-weight: bold;"><?php echo $info['rfc']; ?></span>.</p>
 
           <p style="margin: .2cm 0;"><span style="font-size: 1.5rem; font-weight: bold;"><?php echo $info['propietario']; ?></span><br><span  style="font-size: .8rem;">PROPIETARIO</span></p>
 
