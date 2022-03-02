@@ -24,6 +24,7 @@ include_once 'menu.php';
               <th>FOLIO</th>
               <th>ADMIN.</th>
               <th>TIPO</th>
+              <th>DESTINO</th>
               <th>AÑO</th>
               <th>CARACTERÍSTICAS</th>
               <th>RFC</th>
@@ -44,6 +45,7 @@ include_once 'menu.php';
                 <td><?php echo $licencia['folio']; ?></td>
                 <td><?php echo $licencia['admin']; ?></td>
                 <td><?php echo $licencia['tipo']; ?></td>
+                <td><?php echo $licencia['destino']; ?></td>
                 <td><?php echo $licencia['anyo']; ?></td>
                 <td><?php echo $licencia['caracteristicas']; ?></td>
                 <td><?php echo $licencia['rfc']; ?></td>
