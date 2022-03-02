@@ -44,6 +44,18 @@ input[type='text'] {
   background: none;
 }
 
+table {
+  margin: 2cm 0 0 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0;
+  width: 50%;
+  line-height: 1.1em;
+}
+
 .pagina {
   width: 21.59cm;
   height: 27.94cm;
@@ -56,7 +68,7 @@ input[type='text'] {
 }
 
 .pagina-contenido {
-  padding: 3.5cm 2.2cm 3cm 2.2cm;
+  padding: 3.5cm 1.6cm 3cm 1.6cm;
   height: 21.44cm
 }
 
