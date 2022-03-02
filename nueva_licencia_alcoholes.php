@@ -25,7 +25,7 @@ include_once 'menu.php';
             <div class="row">
               <div class="col-2">
                 <label for="folio">Folio:</label><br>
-                <input id="folio" type="text" name="folio" value="<?php echo $contar_folios+1; ?>" readonly required>
+                <input id="folio" type="text" name="folio" value="<?php echo $contar_folios+1; ?>" required>
                 <input type="hidden" name="administracion" value="<?php echo $administracion_actual; ?>">
               </div>
 
