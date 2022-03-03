@@ -14,6 +14,9 @@ class licencias_alcoholes {
 
   // Función para registrar licencias de alcoholes.
   function registrarLicenciaAlcoholes($connect, $folio, $admin, $tipo, $destino, $anyo, $caracteristicas, $rfc, $propietario, $nombre_comercial, $actividad, $domicilio, $fecha_emision) {
+    $propietario = addslashes($propietario);
+    $nombre_comercial = addslashes($nombre_comercial);
+
     $sql = "INSERT INTO licencias_alcoholes (folio, admin, tipo, destino, anyo, caracteristicas, rfc, propietario, nombre_comercial, actividad, domicilio, fecha_emision, estatus) VALUES ($folio, '$admin', '$tipo', '$destino', $anyo, '$caracteristicas', '$rfc', '$propietario', '$nombre_comercial', '$actividad', '$domicilio', '$fecha_emision', 'ACTIVO')";
 
     mysqli_query($connect, $sql) or die ($connect -> error.' No se ha podido crear la licencia.');
@@ -23,6 +26,9 @@ class licencias_alcoholes {
 
   // Función para actualizar licencia de alcoholes.
   function actualizarLicenciaAlcoholes($connect, $folio, $admin, $tipo, $destino, $anyo, $caracteristicas, $rfc, $propietario, $nombre_comercial, $actividad, $domicilio, $fecha_emision) {
+    $propietario = addslashes($propietario);
+    $nombre_comercial = addslashes($nombre_comercial);
+
     $sql = "UPDATE licencias_alcoholes SET tipo = '$tipo', destino = '$destino', anyo = $anyo, caracteristicas = '$caracteristicas', rfc = '$rfc', propietario = '$propietario', nombre_comercial = '$nombre_comercial', actividad = '$actividad', domicilio = '$domicilio', fecha_emision = '$fecha_emision' WHERE folio = $folio";
 
     mysqli_query($connect, $sql) or die ($connect -> error.' No ha sido posible actualizar la licencia.');
