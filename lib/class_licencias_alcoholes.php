@@ -5,11 +5,11 @@
 class licencias_alcoholes {
   // Función para contar licencias de alcoholes.
   function contarLicenciasAlcoholes($connect) {
-    $sql = "SELECT COUNT(*) AS contar FROM licencias_alcoholes";
+    $sql = "SELECT MAX(folio) AS maximo FROM licencias_alcoholes";
     $query = mysqli_query($connect, $sql);
     $row = mysqli_fetch_array($query);
 
-    return $row['contar'];
+    return $row['maximo'];
   }
 
   // Función para registrar licencias de alcoholes.
