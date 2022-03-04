@@ -24,7 +24,7 @@ include_once 'menu.php';
 
             <div class="col-4">
               <h3>Buscar</h3>
-              <p>Para realizar una búsqueda, escriba el dato en el campo correspondiente.<br><strong>Ningún campo es obligatorio</strong>.</p>
+              <p>Ningún campo es obligatorio.</p>
               <form action="/lista_licencias_alcoholes" method="post">
                 <label for="folio">Por Folio:</label><br>
                 <input id="folio" type="text" name="folio">
