@@ -21,6 +21,11 @@ include_once 'menu.php';
               <h3>Consultar</h3>
               <a class="enlace-boton" style="width: 100%;" href="/lista_licencias_alcoholes">Ver todas las licencias</a><br>
             </div>
+
+            <div class="col-4">
+              <h3>Buscar</h3>
+              
+            </div>
           </div>
         </div>
       </div>
