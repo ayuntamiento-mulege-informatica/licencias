@@ -3,7 +3,13 @@ require_once 'lib/class_licencias_alcoholes.php';
 
 $licencias_alcoholes = new licencias_alcoholes;
 
-$lista_licencias_alcoholes = $licencias_alcoholes -> ListaLicenciasAlcoholesTodas($connect);
+if (isset($_POST['accion'])) {
+  $lista_licencias_alcoholes = $licencias_alcoholes -> BuscarLicenciasAlcoholes($connect, $_POST['folio'], $_POST['propietario'], $_POST['nombre_comercial']);
+}
+else {
+  $lista_licencias_alcoholes = $licencias_alcoholes -> ListaLicenciasAlcoholesTodas($connect);
+}
+
 
 include_once 'header.php';
 include_once 'menu.php';

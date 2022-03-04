@@ -64,9 +64,11 @@ class licencias_alcoholes {
     }
   }
 
+  // Listado de todas las licencias de alcoholes.
   function ListaLicenciasAlcoholesTodas($connect) {
     $sql = "SELECT * FROM licencias_alcoholes";
     $query = mysqli_query($connect, $sql);
+
     while ($row = mysqli_fetch_array($query)) {
       $licencias[] = array(
         'folio' => $row['folio'],
@@ -85,12 +87,37 @@ class licencias_alcoholes {
       );
     }
 
-    if (isset($licencias)) {
-      return $licencias;
+    if (isset($licencias)) { return $licencias; }
+    else { return null; }
+  }
+
+  // Búsqueda de licencias de alcoholes.
+  function BuscarLicenciasAlcoholes($connect, $folio, $propietario, $nombre_comercial) {
+    $nombre_comercial = addslashes($nombre_comercial);
+
+    $sql = "SELECT * FROM licencias_alcoholes WHERE folio LIKE '%$folio%' AND propietario LIKE '%$propietario%' AND nombre_comercial LIKE '%$nombre_comercial%'";
+    $query = mysqli_query($connect, $sql);
+
+    while ($row = mysqli_fetch_array($query)) {
+      $licencias[] = array(
+        'folio' => $row['folio'],
+        'admin' => $row['admin'],
+        'tipo' => $row['tipo'],
+        'destino' => $row['destino'],
+        'anyo' => $row['anyo'],
+        'caracteristicas' => $row['caracteristicas'],
+        'rfc' => $row['rfc'],
+        'propietario' => $row['propietario'],
+        'nombre_comercial' => $row['nombre_comercial'],
+        'actividad' => $row['actividad'],
+        'domicilio' => $row['domicilio'],
+        'fecha_emision' => $row['fecha_emision'],
+        'estatus' => $row['estatus']
+      );
     }
-    else {
-      return null;
-    }
+
+    if (isset($licencias)) { return $licencias; }
+    else { return null; }
   }
 
   // Fecha con letra.
