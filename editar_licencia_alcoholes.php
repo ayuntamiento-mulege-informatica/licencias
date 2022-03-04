@@ -33,8 +33,9 @@ include_once 'menu.php';
             <div class="row">
               <div class="col-2">
                 <label for="folio">Folio:</label><br>
+                <input id="folio_anterior" type="hidden" name="folio_anterior" value="<?php echo $licencia['folio']; ?>" required>
                 <input id="folio" type="text" name="folio" value="<?php echo $licencia['folio']; ?>" required>
-                <input type="hidden" name="administracion" value="<?php echo $licencia['admin']; ?>">
+                <input type="hidden" name="administracion" value="<?php echo $licencia['admin']; ?>" required>
               </div>
 
               <div class="col-1">
@@ -61,7 +62,7 @@ include_once 'menu.php';
 
               <div class="col-2">
                 <label for="destino">Destino:</label><br>
-                <select id="destino" name="destino">
+                <select id="destino" name="destino" required>
                   <?php
                   if ($licencia['destino'] == 'VENTA') { echo '<option value="VENTA" selected>VENTA</option>'; }
                   else{ echo '<option value="VENTA">VENTA</option>'; }
