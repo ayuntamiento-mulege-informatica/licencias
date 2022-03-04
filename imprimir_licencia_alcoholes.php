@@ -31,7 +31,7 @@ else {
     <body>
       <div class="pagina">
         <div class="pagina-contenido">
-          <p style="font-size: 1.8rem; font-weight: bold; margin: .8cm 0 .2cm 0;">ESTA LICENCIA ES VÁLIDA SOLO POR EL <?php echo $info['anyo']; ?></p>
+          <p style="font-size: 1.8rem; font-weight: bold; margin: .8cm 0 .2cm 0;">ESTA LICENCIA ES VÁLIDA SÓLO POR EL <?php echo $info['anyo']; ?></p>
           <p style="font-size: 1.5rem; font-weight: bold; margin: .2cm 0;">TIPO Y FOLIO <?php echo $info['tipo'].'-'.str_pad($info['folio'], 5, "0", STR_PAD_LEFT); ?></p>
 
           <p style="font-size: .8rem; margin: .2cm 0;">LICENCIA PARA OPERAR ESTABLECIMIENTO DE BEBIDAS ALCOHÓLICAS DESTINADAS A:</p>
