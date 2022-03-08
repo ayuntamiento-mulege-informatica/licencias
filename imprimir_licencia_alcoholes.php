@@ -3,8 +3,6 @@ require_once 'connect.php';
 require_once 'lib/class_licencias_alcoholes.php';
 require_once 'lib/class_administraciones.php';
 
-// session_start();
-
 if (!isset($_SESSION['area'])) {
   header('location: /');
 }
@@ -46,9 +44,9 @@ else {
 
           <p style="margin: .5cm 0;"><span style="font-size: .8rem;"><strong><?php echo $info['actividad']; ?></strong></span><br><span style="font-size: .8rem;">ACTIVIDAD</span></p>
 
-          <p style="margin: .5cm 0;"><span style="font-size: .8rem;"><strong><?php echo $info['domicilio']; ?></span></strong><br><span style="font-size: .8rem;">DOMICILIO</span></p>
+          <p style="margin: .5cm 0;"><span style="font-size: .8rem;"><strong><?php echo $info['domicilio']; ?></strong></span><br><span style="font-size: .8rem;">DOMICILIO</span></p>
 
-          <p style="margin: .2cm 0;"><span style="font-size: .8rem;"><strong>SANTA ROSALÍA, BAJA CALIFORNIA SUR, A <?php echo $fecha_letra; ?></strong><br><span style="font-size: .8rem;">LUGAR Y FECHA DE EXPEDICIÓN</span></p>
+          <p style="margin: .2cm 0;"><span style="font-size: .8rem;"><strong>SANTA ROSALÍA, BAJA CALIFORNIA SUR, A <?php echo $fecha_letra; ?></strong></span><br><span style="font-size: .8rem;">LUGAR Y FECHA DE EXPEDICIÓN</span></p>
 
           <table>
             <tr>
