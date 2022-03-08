@@ -3,11 +3,10 @@ require_once 'connect.php';
 require_once 'lib/class_licencias_alcoholes.php';
 require_once 'lib/class_administraciones.php';
 
-if (!isset($_SESSION['area'])) {
+if (!isset($_SESSION['area'])):
   header('location: /');
-}
-else {
-  if ($_SESSION['area'] == 'Recaudación') {
+else:
+  if ($_SESSION['area'] == 'Recaudación') :
 
     $licencias_alcoholes = new licencias_alcoholes;
     $administraciones = new administraciones;
@@ -15,9 +14,7 @@ else {
     $info = $licencias_alcoholes -> infoLicenciaAlcoholes($connect, $parametro_2);
     $funcionario = $administraciones -> imprimirFuncionarios($connect, $info['admin']);
 
-    $fecha_letra = $licencias_alcoholes -> obtenerFechaEnLetra($info['fecha_emision']);
-
-    ?>
+    $fecha_letra = $licencias_alcoholes -> obtenerFechaEnLetra($info['fecha_emision']); ?>
     <!DOCTYPE html>
     <html lang="es-MX">
     <head>
@@ -26,7 +23,7 @@ else {
       <link rel="stylesheet" media="screen" href="/css/screen.css">
       <link rel="stylesheet" media="print" href="/css/print.css">
     </head>
-    <body>
+    <body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
       <div class="pagina">
         <div class="pagina-contenido">
           <p style="font-size: 1.8rem; font-weight: bold; margin: .8cm 0 .2cm 0;">ESTA LICENCIA ES VÁLIDA SÓLO POR EL <?php echo $info['anyo']; ?></p>
@@ -73,6 +70,6 @@ else {
     </body>
     </html>
     <?php
-  }
-}
+  endif;
+endif;
 ?>
