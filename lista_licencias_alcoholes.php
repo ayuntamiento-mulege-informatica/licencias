@@ -46,7 +46,7 @@ include_once 'menu.php';
               foreach ($lista_licencias_alcoholes as $licencia): ?>
               <tr>
                 <td><a href="/editar_licencia_alcoholes/<?php echo $licencia['folio']; ?>" title="Editar licencia"><span class="fas fa-2x fa-pencil-alt"></span></a></td>
-                <td><a href="" title="Eliminar licencia"><span class="fas fa-2x fa-eraser"></span></a></td>
+                <td><a href="/eliminar_licencia_alcoholes/<?php echo $licencia['folio']; ?>" title="Eliminar licencia" onclick="return eliminarLicencia()"><span class="fas fa-2x fa-eraser"></span></a></td>
                 <td><a href="/imprimir_licencia_alcoholes/<?php echo $licencia['folio']; ?>" title="Imprimir licencia" target="_blank"><span class="fas fa-2x fa-print"></span></a></td>
                 <td><?php echo $licencia['folio']; ?></td>
                 <td><?php echo $licencia['admin']; ?></td>
@@ -75,4 +75,25 @@ include_once 'menu.php';
   </section>
 </main>
 
-<?php include_once 'footer.php'; ?>
+<script type="text/javascript">
+  function eliminarLicencia() {
+    if (confirm('Está a punto de eliminar una licencia\n¿Desea continuar?')) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+</script>
+
+<?php
+if (isset($_SESSION['msg'])) {
+  echo '<script>
+  alert("'.$_SESSION['msg'].'");
+  location.href="/lista_licencias_alcoholes";
+  </script>';
+  unset($_SESSION['msg']);
+}
+
+include_once 'footer.php';
+?>

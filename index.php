@@ -55,14 +55,6 @@ switch ($area) {
         include_once 'ver_licencias_comerciales.php';
     		break;
 
-      case '/editar_licencia_alcoholes/'.$parametro_2:
-        include_once 'editar_licencia_alcoholes.php';
-        break;
-
-      case '/imprimir_licencia_alcoholes/'.$parametro_2:
-        include_once 'imprimir_licencia_alcoholes.php';
-        break;
-
       case '/cancelar_licencias_comerciales':
       case '/cancelar_licencias_comerciales/'.$parametro_2:
         include_once 'cancelar_licencias_comerciales.php';
@@ -80,6 +72,18 @@ switch ($area) {
       case '/lista_licencias_alcoholes':
         include_once 'lista_licencias_alcoholes.php';
     		break;
+
+      case '/editar_licencia_alcoholes/'.$parametro_2:
+        include_once 'editar_licencia_alcoholes.php';
+        break;
+
+      case '/eliminar_licencia_alcoholes/'.$parametro_2:
+        include_once 'eliminar_licencia_alcoholes.php';
+        break;
+
+      case '/imprimir_licencia_alcoholes/'.$parametro_2:
+        include_once 'imprimir_licencia_alcoholes.php';
+        break;
 
       case '/levantar_ticket':
         include_once 'levantar_ticket.php';

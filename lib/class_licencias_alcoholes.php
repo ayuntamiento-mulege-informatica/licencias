@@ -136,6 +136,13 @@ class licencias_alcoholes {
     $dia = $dias[date('w', strtotime($fecha))];
     return $dia;
   }
+
+  function eliminarLicenciaAlcoholes($connect, $folio) {
+    $sql = "DELETE FROM licencias_alcoholes WHERE folio = '$folio'";
+    mysqli_query($connect, $sql) or die ($connect -> error.'. La licencia con folio '.$folio.' no ha podido ser eliminada.');
+
+    return 'La licencia con folio '.$folio.' ha sido borrada exitosamente.';
+  }
 }
 
 ?>
